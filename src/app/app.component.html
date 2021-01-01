@@ -24,12 +24,14 @@
       <button class="btn btn-primary" (click)="addHobby()">
         Ajouter hobby
       </button>
-      <input
-        style="margin-top: 5px"
-        type="text"
-        formControlName="index"
-        *ngFor="let hobby of hobbies.controls; let index = index"
-      />
+        <div *ngFor="let hobby of hobbies.controls; let index = index">
+        <input
+          style="margin-top: 5px"
+          type="text"
+          formControlName="index"
+       />
+       <span class="delete" (click)="deleteHobby(index)">&#10060;</span>
+      </div>
     </div>
     <div class="d-flex flex-column form-group">
       <label>Mot de passe</label>

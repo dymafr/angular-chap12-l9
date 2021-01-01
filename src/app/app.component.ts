@@ -30,6 +30,10 @@ export class AppComponent implements OnInit {
     this.hobbies.push(new FormControl(""));
   }
 
+  deleteHobby(index: number) {
+    this.hobbies.removeAt(index);
+  }
+
   submit() {
     console.log(this.form.value);
   }
