@@ -25,12 +25,12 @@
         Ajouter hobby
       </button>
         <div *ngFor="let hobby of hobbies.controls; let index = index">
-        <input
-          style="margin-top: 5px;"
-          type="text"
-          formControlName="index"
-       />
-       <span class="delete" (click)="deleteHobby(index)">&#10060;</span>
+          <input
+            style="margin-top: 5px;"
+            type="text"
+            [formControlName]="index"
+          />
+          <span class="delete" (click)="deleteHobby(index)">&#10060;</span>
       </div>
     </div>
     <div class="d-flex flex-column form-group">
