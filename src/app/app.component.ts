@@ -1,33 +1,25 @@
-import { Component, OnInit } from "@angular/core";
-import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Component } from '@angular/core';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  public form: FormGroup;
+export class AppComponent {
+  public form: FormGroup = new FormGroup({
+    nom: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    hobbies: new FormArray([]),
+    password: new FormControl('')
+  });
 
   get hobbies() {
-    return this.form.get("hobbies") as FormArray;
-  }
-
-  ngOnInit() {
-    this.createForm();
-  }
-
-  createForm() {
-    this.form = new FormGroup({
-      nom: new FormControl("", Validators.required),
-      email: new FormControl("", [Validators.required, Validators.email]),
-      hobbies: new FormArray([]),
-      password: new FormControl("")
-    });
+    return this.form.get('hobbies') as FormArray;
   }
 
   addHobby() {
-    this.hobbies.push(new FormControl(""));
+    this.hobbies.push(new FormControl(''));
   }
 
   deleteHobby(index: number) {
